@@ -31,7 +31,7 @@
         }
         .cat-img {
             height:0;
-            flex-grow:1;
+            flex-grow:0.3;
             width:100%;
             max-width: 800px;
             background-position: bottom;
@@ -67,32 +67,28 @@
 
 </head>
 <body>
-    <div class="background">
-        <b>創意發想中</b>
-        <div class="cat-img" id="p"></div>
+<div class="background">
+    <b>創意力增加中</b>
+    <div class="cat-img" id="p"></div>
 
-        <img src="CANVA.png" width="30%" alt="logo">
-        <h1>正在努力加載...</h1>
-        <a href="https://www.canva.com/" target="_blank">進入連結.</a>
+    <img id="catImg" src="CANVA.png" width="30%" alt="logo">
+    <h1>正在努力加載...</h1>
+    <a href="https://www.canva.com/" target="_blank">進入連結.</a>
 
-    </div>
-    <script>
-        function setCookie(cname, cvalue, exdays) {
-            var d = new Date();
-            d.setTime(d.getTime() + (exdays*24*60*60*1000));
-            var expires = "expires="+ d.toUTCString();
-            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-        }
-        op_func = function(){
-            /*Chance cat image to op.jpg via css*/
-            cat.id = "op";
+</div>
+<script>
+    var pop_count = 0;
 
-            /*Increment pop count*/
-            pop_count++;
-            cat.innerHTML = pop_count;
-            setCookie("pop_count", pop_count, 365);
-        };
-    </script>
+    op_func = function(){
+        pop_count++;
+        cat.innerHTML = pop_count;
+
+    };
+    document.getElementById('catImg').addEventListener('click', function() {
+        pop_count++;
+        document.getElementById('p').innerHTML = pop_count;
+    });
+</script>
 
 </body>
 </html>
